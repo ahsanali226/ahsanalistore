@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowRight, Truck, RefreshCcw, ShieldCheck, Headset } from 'lucide-react';
-import ProductGrid from '@/components/shop/ProductGrid';
+import { ArrowRight, Truck, RefreshCcw, ShieldCheck, PhoneCall } from 'lucide-react';
+import ProductGrid from '@/src/components/shop/ProductGrid';
 
 export default function Home() {
   return (
@@ -79,7 +78,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="text-primary"><Headset size={32} strokeWidth={1.5} /></div>
+              <div className="text-primary"><PhoneCall size={32} strokeWidth={1.5} /></div>
               <div>
                 <h4 className="font-bold text-sm">24/7 Support</h4>
                 <p className="text-xs text-gray-400">We're here to help</p>
