@@ -1,52 +1,31 @@
 "use client"
 
 import React from "react"
-import { ChevronDown, Grid, List } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 
 export default function SortToolbar({
-  totalCount = 24,
-  viewMode = "grid",
-  onViewChange,
   onSortChange,
 }: {
-  totalCount?: number
-  viewMode?: "grid" | "list"
-  onViewChange?: (mode: "grid" | "list") => void
   onSortChange?: (sort: string) => void
 }) {
   return (
-    <div className="flex items-center justify-between border-b py-4">
-      <div className="text-sm text-gray-600 dark:text-gray-300">
-        Showing {totalCount} products
-      </div>
-      <div className="flex items-center space-x-3">
-        <select
-          className="rounded border border-gray-300 bg-white dark:bg-gray-800 dark:text-gray-200 p-1"
-          defaultValue="featured"
-          onChange={(e) => onSortChange?.(e.target.value)}
-        >
-          <option value="featured">Featured</option>
-          <option value="priceLowHigh">Price: Low to High</option>
-          <option value="priceHighLow">Price: High to Low</option>
-          <option value="newest">Newest</option>
-          <option value="bestRated">Best Rated</option>
-        </select>
-        <button
-          type="button"
-          className={`p-1 rounded ${viewMode === "grid" ? "bg-gold-500 text-white" : "bg-gray-200 dark:bg-gray-700"}`}
-          onClick={() => onViewChange?.("grid")}
-          aria-label="Grid view"
-        >
-          <Grid size={20} />
-        </button>
-        <button
-          type="button"
-          className={`p-1 rounded ${viewMode === "list" ? "bg-gold-500 text-white" : "bg-gray-200 dark:bg-gray-700"}`}
-          onClick={() => onViewChange?.("list")}
-          aria-label="List view"
-        >
-          <List size={20} />
-        </button>
+    <div className="flex items-center justify-between pb-4 border-b border-[#2A2A2A]">
+      <h1 className="hidden lg:block text-2xl font-bold tracking-wider uppercase">SHOP</h1>
+      <div className="flex items-center ml-auto">
+        <span className="text-xs text-gray-400 mr-2">Sort by:</span>
+        <div className="relative">
+          <select
+            className="appearance-none bg-transparent text-white text-xs font-medium focus:outline-none pr-4 cursor-pointer"
+            defaultValue="featured"
+            onChange={(e) => onSortChange?.(e.target.value)}
+          >
+            <option value="featured" className="bg-[#1A1A1A]">Featured</option>
+            <option value="priceLowHigh" className="bg-[#1A1A1A]">Price: Low to High</option>
+            <option value="priceHighLow" className="bg-[#1A1A1A]">Price: High to Low</option>
+            <option value="newest" className="bg-[#1A1A1A]">Newest</option>
+          </select>
+          <ChevronDown size={14} className="absolute right-0 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400" />
+        </div>
       </div>
     </div>
   )

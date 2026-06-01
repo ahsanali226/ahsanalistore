@@ -45,7 +45,7 @@ export default function FilterSidebar() {
 
       {/* Price range */}
       <section>
-        <h3 className="font-medium mb-1">Price (PKR)</h3>
+        <h3 className="font-semibold text-sm mb-3 tracking-wider">Price Range</h3>
         <div className="px-2">
           <Slider
             range
@@ -53,12 +53,13 @@ export default function FilterSidebar() {
             max={5000}
             defaultValue={price}
             onChange={handlePriceChange}
-            trackStyle={[{ backgroundColor: "#ffd700" }]}
-            handleStyle={[{ borderColor: "#ffd700" }, { borderColor: "#ffd700" }]}
+            trackStyle={[{ backgroundColor: "#C8963C" }]}
+            handleStyle={[{ borderColor: "#C8963C", backgroundColor: "#C8963C" }, { borderColor: "#C8963C", backgroundColor: "#C8963C" }]}
+            railStyle={{ backgroundColor: "#2A2A2A" }}
           />
-          <div className="flex justify-between text-sm mt-1">
-            <span>{price[0]}</span>
-            <span>{price[1]}</span>
+          <div className="flex justify-between text-xs mt-3 text-gray-400">
+            <span>PKR 0</span>
+            <span>PKR 5000+</span>
           </div>
         </div>
       </section>
